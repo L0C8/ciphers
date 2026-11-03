@@ -1,6 +1,5 @@
 import heapq
 import math
-from collections import Counter
 
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
@@ -30,8 +29,10 @@ def decrypt_cbc(data, key):
 
 def entropy(data):
     n = len(data)
-    sh = -sum(c / n * math.log2(c / n) for c in Counter(data).values())
-    return sh
+    counts = [0] * 256
+    for b in data:
+        counts[b] += 1
+    return -sum(c / n * math.log2(c / n) for c in counts if c)
 
 
 def search(data, bits, keep=10):
