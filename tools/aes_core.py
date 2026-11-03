@@ -32,7 +32,8 @@ def entropy(data):
     counts = [0] * 256
     for b in data:
         counts[b] += 1
-    return -sum(c / n * math.log2(c / n) for c in counts if c)
+    h = -sum(c / n * math.log2(c / n) for c in counts if c)
+    return h
 
 
 def search(data, bits, keep=10):
