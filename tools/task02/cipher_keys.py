@@ -33,9 +33,9 @@ def save(path, data):
 
 
 def show(name, key, cipher, plaintext):
-    print(f"\n  {name}: {key.hex()}")
-    print(f"  decrypted : {xor(cipher, key)!r}")
-    print(f"  verified  : {verify(cipher, key, plaintext)}")
+    print(f"\n{name}: {key.hex()}")
+    print(f"decrypted : {xor(cipher, key)!r}")
+    print(f"verified  : {verify(cipher, key, plaintext)}\n")
 
 
 def main():
@@ -62,8 +62,8 @@ def main():
     save(OUTPUT_K1, k1)
     save(OUTPUT_K2, k2)
 
-    print(f"\n  saved : {OUTPUT_K1}")
-    print(f"  saved : {OUTPUT_K2}")
+    print(f"saved : {OUTPUT_K1}")
+    print(f"saved : {OUTPUT_K2}")
 
 
 if __name__ == "__main__":
